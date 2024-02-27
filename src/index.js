@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
-    <BrowserRouter basename='react-netflix'>
+    <BrowserRouter basename={process.env.REACT_APP_PUBLIC_URL}>
       <App />
     </BrowserRouter>,
     document.getElementById('root') 
