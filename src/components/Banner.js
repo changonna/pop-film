@@ -37,8 +37,6 @@ export default function Banner() {
 
   // play 버튼 클릭 확인
   if(!isClicked) {
-    console.log(`movie.video : ${movie.video}`);
-    console.log(`movie.videos : ${movie.videos}`);
     return (
       <header
         className="banner"
