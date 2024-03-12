@@ -13,6 +13,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import BASE_URL from '../api/baseUrl';
 
 export default function Row({ title, isLargeRow, id, fetchUrl }) {
   const [movies, setMovies] = useState([]);
@@ -71,7 +72,7 @@ export default function Row({ title, isLargeRow, id, fetchUrl }) {
               <img
                 key={movie.id}
                 className={`row__poster ${isLargeRow && "row__posterLarge"}`}
-                src={`https://image.tmdb.org/t/p/original/${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
+                src={`${BASE_URL}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
                 alt={movie.name}
                 onClick={() => handleClick(movie)} // 클릭시 이벤트 함수 실행
               />

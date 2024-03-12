@@ -1,3 +1,4 @@
+import BASE_URL from "../../api/baseUrl";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 import "./MovieModal.css";
 import React, { useRef } from 'react';
@@ -25,7 +26,7 @@ function MovieModal({
           </span>
           <img
             className="modal__poster-img"
-            src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
+            src={`${BASE_URL}${backdrop_path}`}
             alt="modal__poster-img"
           />
           <div className="modal__content">

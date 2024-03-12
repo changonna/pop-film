@@ -3,6 +3,7 @@ import axios from '../api/axios';
 import requests from './../api/requests';
 import "./Banner.css";
 import styled from 'styled-components';
+import BASE_URL from '../api/baseUrl';
 
 export default function Banner() {
   const [movie, setMovie] = useState([]);
@@ -41,7 +42,7 @@ export default function Banner() {
       <header
         className="banner"
         style={{
-          backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
+          backgroundImage: `url("${BASE_URL}${movie.backdrop_path}")`,
           backgroundPosition: "top center",
           backgroundSize: "cover",
         }}
