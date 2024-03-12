@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import "./Nav.css"
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 export default function Nav() {
 	const [show, setShow] = useState(false);
@@ -25,6 +25,15 @@ export default function Nav() {
 	}, []);
 
 	/**
+	 * 로고 클릭시 작동 함수
+	 * @param {*} e 
+	 */
+	const handleLogoClick = (e) => {
+		setSearchValue("");
+		navigate("/");
+	}
+
+	/**
 	 * 검색어 변경시 작동 함수
 	 * @param e
 	 */
@@ -40,7 +49,7 @@ export default function Nav() {
 				alt="Netflix logo"
 				src='https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg'
 				className="nav__logo"
-				onClick={() => window.location.reload()}
+				onClick={handleLogoClick}
 			/>
 			<input value={searchValue} onChange={handleChange} className="nav__input" placeholder="영화를 검색해주세요."/>
 			<img
