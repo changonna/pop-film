@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import axios from '../api/axios';
-import requests from './../api/requests';
+import requests from '../api/requests';
 import "./Banner.css";
-import styled from 'styled-components';
+import styled from "styled-components";
 import BASE_URL from '../api/baseUrl';
+import { MovieProps } from '../interfaces';
 
 export default function Banner() {
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState<MovieProps>();
   const [isClicked, setIsClicked] = useState(false);
 
   useEffect(() => {
@@ -32,7 +33,7 @@ export default function Banner() {
   }
 
   // 문장의 길이가 n보다 크면 ...붙이고 자르기
-  const truncate = (str, n) => {
+  const truncate = (str: string, n: number) => {
     return str?.length > n ? `${str.substr(0, n - 1)} ...` : str;
   }
 
@@ -42,19 +43,19 @@ export default function Banner() {
       <header
         className="banner"
         style={{
-          backgroundImage: `url("${BASE_URL}${movie.backdrop_path}")`,
+          backgroundImage: `url("${BASE_URL}${movie?.backdrop_path}")`,
           backgroundPosition: "top center",
           backgroundSize: "cover",
         }}
       >
         <div className="banner__contents">
           <h1 className="banner__title">
-            {movie.title || movie.name || movie.original_name}
+            { movie?.title || movie?.name || movie?.original_name }
           </h1>
   
           <div className="banner__buttons">
             {/* movie의 videos가 없으면 버튼 감추기 */}
-            { movie.videos ?
+            { movie?.videos?.results.length ?
               <button
                 className="banner__button play"
                 onClick={() => setIsClicked(true)}
@@ -67,7 +68,7 @@ export default function Banner() {
           </div>
   
           <h1 className="banner__description">
-            {truncate(movie.overview, 100)}
+            { movie?.overview ? truncate(movie.overview, 100) : null }
           </h1>
         </div>
         <div className="banner--fadeBottom" />
@@ -77,15 +78,17 @@ export default function Banner() {
     return (
       <Container>
         <HomeContainer>
-          <Iframe
-            width="640"
-            height="360"
-            src={`https://www.youtube.com/embed/${movie.videos.results[0].key}?controls=0&autoplay=1&loop=1&mute=1&playlist=${movie.videos.results[0].key}`}
-            title="YouTube video player"
-            frameborder="0"
-            allow="autoplay; fullscreen"
-            allowfullscreen
-          ></Iframe>
+          { movie?.videos?.results &&
+            <Iframe
+              width="640"
+              height="360"
+              src={`https://www.youtube.com/embed/${movie?.videos.results[0].key}?controls=0&autoplay=1&loop=1&mute=1&playlist=${movie.videos?.results[0].key}`}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="autoplay; fullscreen"
+              allowFullScreen
+            ></Iframe>
+          }
         </HomeContainer>
       </Container>
     );

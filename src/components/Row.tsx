@@ -14,11 +14,12 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import BASE_URL from '../api/baseUrl';
+import { MovieProps, RowProps } from '../interfaces';
 
-export default function Row({ title, isLargeRow, id, fetchUrl }) {
-  const [movies, setMovies] = useState([]);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [movieSelected, setMovieSelected] = useState({});
+export default function Row({ title, isLargeRow, id, fetchUrl }: RowProps) {
+  const [movies, setMovies] = useState<MovieProps[]>([]);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [movieSelected, setMovieSelected] = useState<MovieProps>();
 
   useEffect(() => {
     fetchMovieData();
@@ -31,7 +32,7 @@ export default function Row({ title, isLargeRow, id, fetchUrl }) {
   }
 
   // 영화 클릭시(자세히 보기)
-  const handleClick = (movie) => {
+  const handleClick = (movie: MovieProps) => {
     setModalOpen(true);
     setMovieSelected(movie);
   }
@@ -67,7 +68,7 @@ export default function Row({ title, isLargeRow, id, fetchUrl }) {
       >
         <div id={id} className='row__posters'>
           {/**SEVERAL ROW__POSTER */}
-          {movies.map((movie) => (
+          {movies.map((movie: MovieProps) => (
             <SwiperSlide>
               <img
                 key={movie.id}

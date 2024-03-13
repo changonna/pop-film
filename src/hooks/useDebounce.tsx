@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
  * @param {*} delay 지연시간
  * @returns debounce가 적용된 값
  */
-export const useDebounce = (value, delay) => {
+export const useDebounce = (value: string | null, delay: number) => {
 	const [debounceValue, setDebounceValue] = useState(value);
 
 	useEffect(() => {

@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect, ChangeEvent } from 'react'
 import "./Nav.css"
-import {Link, useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Nav() {
-	const [show, setShow] = useState(false);
-	const [searchValue, setSearchValue] = useState(""); // 검색 내용
+	const [show, setShow] = useState<boolean>(false);
+	const [searchValue, setSearchValue] = useState<string>(""); // 검색 내용
 	const navigate = useNavigate(); // 페이지 이동시 사용
 
 	useEffect(() => {
@@ -26,9 +26,8 @@ export default function Nav() {
 
 	/**
 	 * 로고 클릭시 작동 함수
-	 * @param {*} e 
 	 */
-	const handleLogoClick = (e) => {
+	const handleLogoClick = () => {
 		setSearchValue("");
 		navigate("/");
 	}
@@ -37,7 +36,7 @@ export default function Nav() {
 	 * 검색어 변경시 작동 함수
 	 * @param e
 	 */
-	const handleChange = (e) => {
+	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setSearchValue(e.target.value); // 검색어 내용 변경
 		navigate(`search?q=${e.target.value}`); //
 	}

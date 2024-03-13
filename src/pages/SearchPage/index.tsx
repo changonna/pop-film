@@ -3,10 +3,11 @@ import {useLocation, useNavigate} from "react-router-dom";
 import axios from "../../api/axios";
 import "./SearchPage.css";
 import { useDebounce } from '../../hooks/useDebounce';
+import { MovieProps } from '../../interfaces';
 
 function SearchPage() {
 	const navigate = useNavigate();
-	const [searchResults, setSearchResults] = useState([]);
+	const [searchResults, setSearchResults] = useState<MovieProps[]>([]);
 	
 	const useQuery = () => {
 		return new URLSearchParams(useLocation().search);
@@ -29,7 +30,7 @@ function SearchPage() {
 	 * @param searchTerm : 영화검색어
 	 * @returns {Promise<void>}
 	 */
-	const fetchSearchMovie = async (searchTerm) => {
+	const fetchSearchMovie = async (searchTerm: string) => {
 		try {
 			const request = await axios.get(
 				`/search/multi?include_adult=false&query=${searchTerm}` // 성인 영화 제외
@@ -48,7 +49,7 @@ function SearchPage() {
 	const renderSearchResults = () => {
 		return searchResults.length > 0 ? (
 			<section className="search-container">
-				{searchResults.map((movie) => {
+				{searchResults.map((movie: MovieProps) => {
 					if(movie.backdrop_path !== null && movie.media_type !== "person") {
 						const movieImageUrl = "https://image.tmdb.org/t/p/w500" + movie.backdrop_path;
 						return (
