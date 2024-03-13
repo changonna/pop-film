@@ -19,15 +19,14 @@ export default function Nav() {
 
 		return () => {
 			// removeEventListener
-			window.removeEventListener("scroll", () => {
-			});
+			window.removeEventListener("scroll", () => {});
 		}
 	}, []);
 
 	/**
 	 * 로고 클릭시 작동 함수
 	 */
-	const handleLogoClick = () => {
+	const handleLogoClick = (): void => {
 		setSearchValue("");
 		navigate("/");
 	}

@@ -2,22 +2,10 @@ import BASE_URL from "../../api/baseUrl";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 import "./MovieModal.css";
 import React, { useRef } from 'react';
-
-export interface MovieModalProps {
-  id?: any
-  poster_path?: any
-  backdrop_path?: any
-  title?: any
-  overview?: any
-  name?: any
-  release_date?: any
-  first_air_date?: any
-  vote_average?: any
-  setModalOpen?: any
-  media_type?: any
-}
+import { MovieModalProps } from "../../interfaces/index";
 
 function MovieModal({
+  id,
   backdrop_path,
   title,
   overview,

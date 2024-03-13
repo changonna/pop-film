@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from "../../api/axios";
 import BASE_URL from '../../api/baseUrl';
-import { MovieProps } from '../../interfaces';
+import { Movie } from '../../interfaces';
 
 /**
  * 영화 상세 페이지
  */
 export default function DetailPage() {
   const { movieId } = useParams();
-  const [movie, setmovie] = useState<MovieProps>();
+  const [movie, setmovie] = useState<Movie>();
 
   useEffect(() => {
-    async function fetchData() {
+    async function fetchData(): Promise<void> {
       const request = await axios.get(
         `/movie/${movieId}`
       )

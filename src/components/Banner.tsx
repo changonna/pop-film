@@ -4,17 +4,17 @@ import requests from '../api/requests';
 import "./Banner.css";
 import styled from "styled-components";
 import BASE_URL from '../api/baseUrl';
-import { MovieProps } from '../interfaces';
+import { Movie } from '../interfaces';
 
 export default function Banner() {
-  const [movie, setMovie] = useState<MovieProps>();
-  const [isClicked, setIsClicked] = useState(false);
+  const [movie, setMovie] = useState<Movie>();
+  const [isClicked, setIsClicked] = useState<boolean>(false);
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  const fetchData = async () => {
+  const fetchData = async (): Promise<void> => {
     // 현재 상영중인 영화 정보를 가져오기(여러 영화)
     const request = await axios.get(requests.fetchNowPlaying);
     // 여러 영화 중 하나의 영화의 ID를 가져오기
@@ -33,8 +33,8 @@ export default function Banner() {
   }
 
   // 문장의 길이가 n보다 크면 ...붙이고 자르기
-  const truncate = (str: string, n: number) => {
-    return str?.length > n ? `${str.substr(0, n - 1)} ...` : str;
+  const truncate = (str: string, n: number): string => {
+    return str.length > n ? `${str.substring(0, n - 1)} ...` : str;
   }
 
   // play 버튼 클릭 확인

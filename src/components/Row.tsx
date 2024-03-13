@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from "../api/axios";
 import "./Row.css";
 import MovieModal from './MovieModal';
+import BASE_URL from '../api/baseUrl';
+import { Movie, RowProps } from '../interfaces';
 
 // import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
@@ -13,26 +15,24 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import BASE_URL from '../api/baseUrl';
-import { MovieProps, RowProps } from '../interfaces';
 
 export default function Row({ title, isLargeRow, id, fetchUrl }: RowProps) {
-  const [movies, setMovies] = useState<MovieProps[]>([]);
+  const [movies, setMovies] = useState<Movie[]>([]);
   const [modalOpen, setModalOpen] = useState<boolean>(false);
-  const [movieSelected, setMovieSelected] = useState<MovieProps>();
+  const [movieSelected, setMovieSelected] = useState<Movie>({ id: 0 });
 
   useEffect(() => {
     fetchMovieData();
   }, []);
 
-  const fetchMovieData = async () => {
+  const fetchMovieData = async (): Promise<void> => {
     const request = await axios.get(fetchUrl);
     console.log(request);
     setMovies(request.data.results);
   }
 
   // 영화 클릭시(자세히 보기)
-  const handleClick = (movie: MovieProps) => {
+  const handleClick = (movie: Movie): void => {
     setModalOpen(true);
     setMovieSelected(movie);
   }
@@ -68,7 +68,7 @@ export default function Row({ title, isLargeRow, id, fetchUrl }: RowProps) {
       >
         <div id={id} className='row__posters'>
           {/**SEVERAL ROW__POSTER */}
-          {movies.map((movie: MovieProps) => (
+          {movies.map((movie: Movie) => (
             <SwiperSlide>
               <img
                 key={movie.id}
