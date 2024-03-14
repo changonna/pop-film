@@ -84,7 +84,7 @@ export default function Row({ title, isLargeRow, id, fetchUrl }: RowProps) {
       {
         // modalOpen이 true일때, MovieModal을 보여준다.
         modalOpen && ( // props로 movie정보와, setModalOpen을 넘겨준다.
-          <MovieModal {...movieSelected} setModalOpen={setModalOpen} />
+          <MovieModal movie={movieSelected} setModalOpen={setModalOpen} />
         )
       }
 

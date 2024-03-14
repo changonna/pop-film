@@ -15,6 +15,7 @@ export interface Movie {
   release_date?: string;
 }
 
-export interface MovieModalProps extends Movie {
+export interface MovieModalProps {
+  movie: Movie;
   setModalOpen: (isOpen: boolean) => void;
 }
