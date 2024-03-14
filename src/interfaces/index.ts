@@ -1,2 +1,2 @@
-export * from './movieProps.interface';
-export * from './rowProps.interface';
+export * from './movie.interface';
+export * from './row.interface';
