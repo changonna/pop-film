@@ -6,25 +6,15 @@ export default function Footer() {
     <FooterContainer>
       <FooterContent>
         <FooterLinkContainer>
-          <FooterLinkTitle>넷플릭스 대한민국</FooterLinkTitle>
+          <FooterLinkTitle>PopFilm 대한민국</FooterLinkTitle>
           <FooterLinkContent>
-            <FooterLink href="https://help.netflix.com/ko/node/412">
-              넷플릭스 소개
-            </FooterLink>
-            <FooterLink href="https://help.netflix.com/ko">
-              고객 센터
-            </FooterLink>
-            <FooterLink href="https://help.netflix.com/ko/">
-              미디어 센터
-            </FooterLink>
-            <FooterLink href="https://help.netflix.com/ko/">
-              이용 약관
-            </FooterLink>
+            <FooterLink href="">PopFilm 소개</FooterLink>
+            <FooterLink href="">고객 센터</FooterLink>
+            <FooterLink href="">미디어 센터</FooterLink>
+            <FooterLink href="">이용 약관</FooterLink>
           </FooterLinkContent>
           <FooterDescContainer>
-                <FooterDescRights>
-                    Netflix Rights Reserved.
-                </FooterDescRights>
+            <FooterDescRights>PopFilm Rights Reserved.</FooterDescRights>
           </FooterDescContainer>
         </FooterLinkContainer>
       </FooterContent>
