@@ -1,6 +1,6 @@
 # PopFilm
 #### 영화 검색 웹서비스
-### [👓Link](https://changonna.github.io/pop-flim/)
+### [👓Link](https://changonna.github.io/pop-film/)
 
 ## 사용 기술
 <div>
