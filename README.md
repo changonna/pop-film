@@ -1,6 +1,6 @@
-# Netflix
+# PopFilm
 #### 영화 검색 웹서비스
-### [👓Link](https://changonna.github.io/react-netflix/)
+### [👓Link](https://changonna.github.io/pop-flim/)
 
 ## 사용 기술
 <div>
@@ -10,4 +10,4 @@
 </div>
 
 ## Main
-![image](https://github.com/changonna/react-netflix/assets/70050851/01063e82-e3ce-4835-b174-496c42594af3)
+![image](https://github.com/changonna/pop-flim/assets/70050851/0fd3e673-e41d-40c8-8520-38b8a5983970)
