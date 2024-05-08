@@ -5,9 +5,9 @@ module.exports = {
 		node: true,
 	},
 	extends: [
-		"standard-with-typescript",
+		// "standard-with-typescript",
 		"plugin:react/recommended",
-		"plugin:prettier/recommended",
+		"prettier",
 	],
 	overrides: [
 		{
