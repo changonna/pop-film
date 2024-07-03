@@ -1,25 +1,22 @@
-import React, {useEffect, useState} from 'react';
-import {useLocation, useNavigate} from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "../../api/axios";
 import "./SearchPage.css";
-import { useDebounce } from '../../hooks/useDebounce';
-import { Movie } from '../../interfaces';
+import useDebounce from "../../hooks/useDebounce";
+import { Movie } from "../../interfaces";
 
 function SearchPage() {
 	const navigate = useNavigate();
 	const [searchResults, setSearchResults] = useState<Movie[]>([]);
-	
-	const useQuery = () => {
-		return new URLSearchParams(useLocation().search);
-	}
 
-	let query = useQuery();
+	const useQuery = () => new URLSearchParams(useLocation().search);
+
+	const query = useQuery();
 	const searchTerm: string = query.get("q")!;
 	const debounceSearchTerm = useDebounce(searchTerm, 500);
-	
 
 	useEffect(() => {
-		if(debounceSearchTerm) {
+		if (debounceSearchTerm) {
 			fetchSearchMovie(debounceSearchTerm);
 			console.log(debounceSearchTerm);
 		}
@@ -27,52 +24,59 @@ function SearchPage() {
 
 	/**
 	 * 영화검색
-	 * @param searchTerm : 영화검색어
+	 * @param term : 영화검색어
 	 * @returns {Promise<void>}
 	 */
-	const fetchSearchMovie = async (searchTerm: string): Promise<void> => {
+	const fetchSearchMovie = async (term: string): Promise<void> => {
 		try {
 			const request = await axios.get(
-				`/search/multi?include_adult=false&query=${searchTerm}` // 성인 영화 제외
-			)
+				`/search/multi?include_adult=false&query=${term}`, // 성인 영화 제외
+			);
 			console.log(request);
 			setSearchResults(request.data.results);
 		} catch (e) {
 			console.log("error", e);
 		}
-	}
+	};
 
 	/**
 	 * 검색결과 렌더링 함수
 	 * @returns {Element}
 	 */
-	const renderSearchResults = () => {
-		return searchResults.length > 0 ? (
+	const renderSearchResults = () =>
+		searchResults.length > 0 ? (
 			<section className="search-container">
 				{searchResults.map((movie: Movie) => {
-					if(movie.backdrop_path !== null && movie.media_type !== "person") {
-						const movieImageUrl = "https://image.tmdb.org/t/p/w500" + movie.backdrop_path;
+					if (movie.backdrop_path !== null && movie.media_type !== "person") {
+						const movieImageUrl = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`;
 						return (
 							<div className="movie">
-								<div onClick={() => navigate(`/${movie.id}`)} className="movie__column-poster">
+								<div
+									onClick={() => navigate(`/${movie.id}`)}
+									className="movie__column-poster"
+								>
 									<img
-										src={movieImageUrl} alt="movie image"
+										src={movieImageUrl}
+										alt="moviePoster"
 										className="movie__poster"
-										/>
+									/>
 								</div>
 							</div>
-						)
+						);
 					}
+					return null;
 				})}
 			</section>
 		) : (
 			<section className="no-results">
 				<div className="no-results__text">
-					<p>찾고자하는 검색어"{debounceSearchTerm}"에 맞는 영화가 없습니다.</p>
+					<p>
+						찾고자하는 검색어&quot;{debounceSearchTerm}&quot;에 맞는 영화가
+						없습니다.
+					</p>
 				</div>
 			</section>
-		)
-	}
+		);
 
 	return renderSearchResults();
 }
