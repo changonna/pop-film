@@ -5,8 +5,9 @@ module.exports = {
 		node: true,
 	},
 	extends: [
-		// "standard-with-typescript",
-		"plugin:react/recommended",
+		// "plugin:@typescript-eslint/recommended", // Typescript
+		// "plugin:react/recommended", // React
+		"airbnb",
 		"prettier",
 	],
 	overrides: [
@@ -20,6 +21,7 @@ module.exports = {
 			},
 		},
 	],
+	// parser: "@typescript-eslint/parser",
 	parserOptions: {
 		ecmaVersion: "latest",
 		sourceType: "module",
