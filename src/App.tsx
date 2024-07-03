@@ -8,29 +8,29 @@ import SearchPage from "./pages/SearchPage/index";
 import DetailPage from "./pages/DetailPage/index";
 
 const Layout = () => {
-  return (
-    <div>
-      <Nav />
+	return (
+		<div>
+			<Nav />
 
-      <Outlet />
+			<Outlet />
 
-      <Footer />
-    </div>
-  );
+			<Footer />
+		</div>
+	);
 };
 
 function App() {
-  return (
-    <div className="app">
-      <Routes>
-        <Route path="/pop-film" element={<Layout />}>
-          <Route index element={<MainPage />} />
-          <Route path=":movieId" element={<DetailPage />} />
-          <Route path="search" element={<SearchPage />} />
-        </Route>
-      </Routes>
-    </div>
-  );
+	return (
+		<div className="app">
+			<Routes>
+				<Route path="/pop-film" element={<Layout />}>
+					<Route index element={<MainPage />} />
+					<Route path=":movieId" element={<DetailPage />} />
+					<Route path="search" element={<SearchPage />} />
+				</Route>
+			</Routes>
+		</div>
+	);
 }
 
 export default App;
