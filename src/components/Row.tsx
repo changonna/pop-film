@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
+// import Swiper core and required modules
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import axios from "../api/axios";
 import "./Row.css";
 import MovieModal from "./MovieModal";
 import BASE_URL from "../api/baseUrl";
 import { Movie, RowProps } from "../interfaces";
-
-// import Swiper core and required modules
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-
-import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
@@ -46,7 +44,7 @@ export default function Row({ title, isLargeRow, id, fetchUrl }: RowProps) {
 				modules={[Navigation, Pagination, Scrollbar, A11y]}
 				navigation
 				pagination={{ clickable: true }}
-				loop={true}
+				loop
 				breakpoints={{
 					1378: {
 						slidesPerView: 6,
@@ -67,9 +65,9 @@ export default function Row({ title, isLargeRow, id, fetchUrl }: RowProps) {
 				}}
 			>
 				<div id={id} className="row__posters">
-					{/**SEVERAL ROW__POSTER */}
+					{/** SEVERAL ROW__POSTER */}
 					{movies.map((movie: Movie) => (
-						<SwiperSlide>
+						<SwiperSlide key={movie.id}>
 							<img
 								key={movie.id}
 								className={`row__poster ${isLargeRow && "row__posterLarge"}`}

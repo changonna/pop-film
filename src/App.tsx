@@ -7,7 +7,7 @@ import MainPage from "./pages/MainPage/index";
 import SearchPage from "./pages/SearchPage/index";
 import DetailPage from "./pages/DetailPage/index";
 
-const Layout = () => {
+function Layout() {
 	return (
 		<div>
 			<Nav />
@@ -17,7 +17,7 @@ const Layout = () => {
 			<Footer />
 		</div>
 	);
-};
+}
 
 function App() {
 	return (
