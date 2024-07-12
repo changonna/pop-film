@@ -51,6 +51,7 @@ module.exports = {
 		"jsx-a11y/click-events-have-key-events": "off", // 클릭 이벤트 핸들러가 있는 요소에 키보드 이벤트 리스너가 없어도 허용
 		"jsx-a11y/no-static-element-interactions": "off", // 비인터랙티브 요소에 마우스나 키보드 이벤트 리스너가 있어도 허용
 		"jsx-a11y/no-noninteractive-element-interactions": "off",
+		"no-alert": "off", // alert 사용을 허용합니다.
 	},
 	settings: {
 		"import/resolver": {
