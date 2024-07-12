@@ -18,7 +18,6 @@ function SearchPage() {
 	useEffect(() => {
 		if (debounceSearchTerm) {
 			fetchSearchMovie(debounceSearchTerm);
-			console.log(debounceSearchTerm);
 		}
 	}, [debounceSearchTerm]);
 
@@ -32,10 +31,9 @@ function SearchPage() {
 			const request = await axios.get(
 				`/search/multi?include_adult=false&query=${term}`, // 성인 영화 제외
 			);
-			console.log(request);
 			setSearchResults(request.data.results);
 		} catch (e) {
-			console.log("error", e);
+			alert(e);
 		}
 	};
 
