@@ -33,6 +33,7 @@ function SearchPage() {
 			);
 			setSearchResults(request.data.results);
 		} catch (e) {
+			alert(e);
 		}
 	};
 
