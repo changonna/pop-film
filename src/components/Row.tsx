@@ -25,6 +25,7 @@ export default function Row({ title, isLargeRow, id, fetchUrl }: RowProps) {
 
 	const fetchMovieData = async (): Promise<void> => {
 		const request = await axios.get(fetchUrl);
+		console.log(request);
 		setMovies(request.data.results);
 	};
 
