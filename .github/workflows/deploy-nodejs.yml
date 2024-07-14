@@ -42,7 +42,9 @@ jobs:
         git config --global user.name "changonna"
     - name: Deploy to GitHub Pages
       env:
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}  # Personal Access Token을 사용
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        REACT_APP_MOVIE_DB_API_KEY: ${{ secrets.API_KEY }}
+
       run: |
         git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}
         npm run deploy
