@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "https://changonna.github.io/pop-film/static/css/main.ffe8b7f7.css",
-    "main.js": "https://changonna.github.io/pop-film/static/js/main.65970789.js",
-    "static/media/logo.png": "https://changonna.github.io/pop-film/static/media/logo.06569813096471a11664.png",
-    "index.html": "https://changonna.github.io/pop-film/index.html",
-    "main.ffe8b7f7.css.map": "https://changonna.github.io/pop-film/static/css/main.ffe8b7f7.css.map",
-    "main.65970789.js.map": "https://changonna.github.io/pop-film/static/js/main.65970789.js.map"
+    "main.css": "/pop-film/static/css/main.d45d7045.css",
+    "main.js": "/pop-film/static/js/main.d9fff460.js",
+    "static/media/logo.png": "/pop-film/static/media/logo.06569813096471a11664.png",
+    "index.html": "/pop-film/index.html",
+    "main.d45d7045.css.map": "/pop-film/static/css/main.d45d7045.css.map",
+    "main.d9fff460.js.map": "/pop-film/static/js/main.d9fff460.js.map"
   },
   "entrypoints": [
-    "static/css/main.ffe8b7f7.css",
-    "static/js/main.65970789.js"
+    "static/css/main.d45d7045.css",
+    "static/js/main.d9fff460.js"
   ]
 }
