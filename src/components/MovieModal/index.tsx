@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import styled from "styled-components";
 import BASE_URL from "../../api/baseUrl";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 import "./MovieModal.css";
@@ -14,10 +15,7 @@ function MovieModal({ movie, setModalOpen }: MovieModalProps) {
 		<div className="presentation">
 			<div className="wrapper-modal">
 				<div className="modal" ref={ref}>
-					{/** x클릭시 modalOpen false로 변경하여 끄기 * */}
-					<span onClick={() => setModalOpen(false)} className="modal-close">
-						X
-					</span>
+					<CloseButton onClick={() => setModalOpen(false)} />
 					<img
 						className="modal__poster-img"
 						src={`${BASE_URL}${movie.backdrop_path}`}
@@ -40,5 +38,39 @@ function MovieModal({ movie, setModalOpen }: MovieModalProps) {
 		</div>
 	);
 }
+
+const CloseButton = styled.button`
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	cursor: pointer;
+	z-index: 1000;
+	color: white;
+	padding-bottom: 4px;
+	background-color: rgba(0, 0, 0, 0.7);
+	border: none;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition:
+		transform 0.3s ease,
+		background-color 0.3s ease;
+
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.9);
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&::before {
+		content: "×";
+		font-size: 20px;
+	}
+`;
 
 export default MovieModal;
