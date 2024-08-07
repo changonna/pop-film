@@ -50,6 +50,7 @@ jobs:
       env:
         DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
         REACT_APP_MOVIE_DB_API_KEY: ${{ secrets.API_KEY }}
+        BASE_PATH: ${{ secrets.BASE_PATH }}
       run: |
         git remote set-url origin https://x-access-token:${{ secrets.DEPLOY_TOKEN }}@github.com/${{ github.repository }}
         npm run deploy
