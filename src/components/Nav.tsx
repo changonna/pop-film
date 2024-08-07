@@ -29,7 +29,7 @@ export default function Nav() {
 	 */
 	const handleLogoClick = (): void => {
 		setSearchValue("");
-		navigate("/pop-film");
+		navigate("/pop-film");	
 	};
 
 	/**
@@ -38,7 +38,7 @@ export default function Nav() {
 	 */
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setSearchValue(e.target.value); // 검색어 내용 변경
-		navigate(`search?q=${e.target.value}`); //
+		navigate(`search?q=${e.target.value}`);
 	};
 
 	return (

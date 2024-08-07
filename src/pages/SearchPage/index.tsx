@@ -6,6 +6,8 @@ import useDebounce from "../../hooks/useDebounce";
 import { Movie } from "../../interfaces";
 
 function SearchPage() {
+	const basePath = process.env.REACT_APP_BASE_PATH || "/pop-film";
+
 	const navigate = useNavigate();
 	const [searchResults, setSearchResults] = useState<Movie[]>([]);
 
@@ -50,7 +52,7 @@ function SearchPage() {
 						return (
 							<div className="movie">
 								<div
-									onClick={() => navigate(`/${movie.id}`)}
+									onClick={() => navigate(`${basePath}/${movie.id}`)}
 									className="movie__column-poster"
 								>
 									<img
