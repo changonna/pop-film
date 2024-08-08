@@ -25,12 +25,18 @@
 	margin: 16px 0;
 }
 .modal__details {
+	display: flex;
+	justify-content: space-between;
 	font-weight: 600;
+	font-size: 18px;
+}
+.modal__rating {
 	font-size: 18px;
 }
 .modal__overview {
 	font-size: 20px;
 	line-height: 1.5;
+	padding-top: 16px;
 }
 .modal__user-perc {
 	color: #46d369;
@@ -67,6 +73,9 @@
 	}
 }
 @media screen and (max-width: 768px) {
+	.modal__rating {
+		font-size: 14px;
+	}
 	.modal__overview {
 		font-size: 16px;
 	}
