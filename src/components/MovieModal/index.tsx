@@ -23,14 +23,16 @@ function MovieModal({ movie, setModalOpen }: MovieModalProps) {
 					/>
 					<div className="modal__content">
 						<p className="modal__details">
-							<span className="modal__user_perc">100% for you</span>{" "}
-							{movie.release_date ? movie.release_date : movie.first_air_date}
+							<span className="modal__user-perc">100% for you</span>{" "}
+							<ReleaseDate>
+								{movie.release_date ? movie.release_date : movie.first_air_date}
+							</ReleaseDate>
 						</p>
 
 						<h2 className="modal__title">
 							{movie.title ? movie.title : movie.name}
 						</h2>
-						<p className="modal__overview"> 평점: {movie.vote_average}</p>
+						<p className="modal__rating"> 평점: {movie.vote_average}</p>
 						<p className="modal__overview"> {movie.overview}</p>
 					</div>
 				</div>
@@ -71,6 +73,10 @@ const CloseButton = styled.button`
 		content: "×";
 		font-size: 20px;
 	}
+`;
+
+const ReleaseDate = styled.span`
+	text-align: right;
 `;
 
 export default MovieModal;
