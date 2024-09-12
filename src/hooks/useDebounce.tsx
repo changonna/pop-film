@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 /**
  * useDebounce 커스텀 훅
@@ -7,22 +7,22 @@ import { useState, useEffect } from "react";
  * @returns debounce가 적용된 값
  */
 const useDebounce = (value: string, delay: number): string => {
-	const [debounceValue, setDebounceValue] = useState(value);
+  const [debounceValue, setDebounceValue] = useState(value);
 
-	useEffect(() => {
-		// delay 이후에 value를 debounceValue로 설정
-		const handler = setTimeout(() => {
-			setDebounceValue(value);
-		}, delay);
+  useEffect(() => {
+    // delay 이후에 value를 debounceValue로 설정
+    const handler = setTimeout(() => {
+      setDebounceValue(value);
+    }, delay);
 
-		// 컴포넌트가 unmount되거나 value나 delay가 변경될 때,
-		// 그리고 디바운스 효과가 적용되기 전에 타임아웃이 완료되지 않도록 하는데 사용
-		return () => {
-			clearTimeout(handler);
-		};
-	}, [value, delay]); // value나 delay가 변경될 때 재실행
+    // 컴포넌트가 unmount되거나 value나 delay가 변경될 때,
+    // 그리고 디바운스 효과가 적용되기 전에 타임아웃이 완료되지 않도록 하는데 사용
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]); // value나 delay가 변경될 때 재실행
 
-	return debounceValue;
+  return debounceValue;
 };
 
 export default useDebounce;
