@@ -1,38 +1,38 @@
-import React from "react";
-import { Outlet, Routes, Route } from "react-router-dom";
-import "./App.css";
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
-import MainPage from "./pages/MainPage/index";
-import SearchPage from "./pages/SearchPage/index";
-import DetailPage from "./pages/DetailPage/index";
+import React from 'react';
+import { Outlet, Routes, Route } from 'react-router-dom';
+import '@/App.css';
+import Nav from '@/components/Nav';
+import DetailPage from '@/pages/DetailPage';
+import Footer from '@/components/Footer';
+import MainPage from '@/pages/MainPage';
+import SearchPage from '@/pages/SearchPage';
 
-const basePath = process.env.REACT_APP_BASE_PATH || "/pop-film";
+const basePath = process.env.REACT_APP_BASE_PATH || '/pop-film';
 
 function Layout() {
-	return (
-		<div>
-			<Nav />
+  return (
+    <div>
+      <Nav />
 
-			<Outlet />
+      <Outlet />
 
-			<Footer />
-		</div>
-	);
+      <Footer />
+    </div>
+  );
 }
 
 function App() {
-	return (
-		<div className="app">
-			<Routes>
-				<Route path={basePath} element={<Layout />}>
-					<Route index element={<MainPage />} />
-					<Route path=":movieId" element={<DetailPage />} />
-					<Route path="search" element={<SearchPage />} />
-				</Route>
-			</Routes>
-		</div>
-	);
+  return (
+    <div className="app">
+      <Routes>
+        <Route path={basePath} element={<Layout />}>
+          <Route index element={<MainPage />} />
+          <Route path=":movieId" element={<DetailPage />} />
+          <Route path="search" element={<SearchPage />} />
+        </Route>
+      </Routes>
+    </div>
+  );
 }
 
 export default App;
