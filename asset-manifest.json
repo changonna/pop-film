@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/pop-film/static/css/main.c1eb3720.css",
-    "main.js": "/pop-film/static/js/main.ce9ae4f3.js",
+    "main.css": "/pop-film/static/css/main.1ac2b326.css",
+    "main.js": "/pop-film/static/js/main.8fb2fdfb.js",
     "static/media/logo.png": "/pop-film/static/media/logo.06569813096471a11664.png",
     "index.html": "/pop-film/index.html",
-    "main.c1eb3720.css.map": "/pop-film/static/css/main.c1eb3720.css.map",
-    "main.ce9ae4f3.js.map": "/pop-film/static/js/main.ce9ae4f3.js.map"
+    "main.1ac2b326.css.map": "/pop-film/static/css/main.1ac2b326.css.map",
+    "main.8fb2fdfb.js.map": "/pop-film/static/js/main.8fb2fdfb.js.map"
   },
   "entrypoints": [
-    "static/css/main.c1eb3720.css",
-    "static/js/main.ce9ae4f3.js"
+    "static/css/main.1ac2b326.css",
+    "static/js/main.8fb2fdfb.js"
   ]
 }
