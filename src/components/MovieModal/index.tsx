@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import BASE_URL from '@/api/baseUrl';
 import useOnClickOutside from '@/hooks/useOnClickOutside';
 import './MovieModal.css';
-import { MovieModalProps } from '@/interfaces/index';
+import { MovieModalProps } from '@/interfaces';
 
 function MovieModal({ movie, setModalOpen }: MovieModalProps) {
   const ref = useRef<HTMLDivElement | null>(null);
