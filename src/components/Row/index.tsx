@@ -6,7 +6,7 @@ import axios from '@/api/axios';
 import './Row.css';
 import BASE_URL from '@/api/baseUrl';
 import { Movie, RowProps } from '@/interfaces';
-import MovieModal from './MovieModal';
+import MovieModal from '@/components/MovieModal';
 
 // Import Swiper styles
 import 'swiper/css';
