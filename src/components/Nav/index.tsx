@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import logo from '@/images/logo.png';
 
 export default function Nav() {
+  const basePath = process.env.REACT_APP_BASE_PATH || '/';
   const [show, setShow] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>(''); // 검색 내용
   const navigate = useNavigate(); // 페이지 이동시 사용
@@ -29,7 +30,7 @@ export default function Nav() {
    */
   const handleLogoClick = (): void => {
     setSearchValue('');
-    navigate('/pop-film');
+    navigate(basePath);
   };
 
   /**

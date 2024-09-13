@@ -7,15 +7,13 @@ import Footer from '@/components/Footer';
 import MainPage from '@/pages/MainPage';
 import SearchPage from '@/pages/SearchPage';
 
-const basePath = process.env.REACT_APP_BASE_PATH || '/pop-film';
+const basePath = process.env.REACT_APP_BASE_PATH || '';
 
 function Layout() {
   return (
     <div>
       <Nav />
-
       <Outlet />
-
       <Footer />
     </div>
   );

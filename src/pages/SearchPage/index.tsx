@@ -6,7 +6,7 @@ import useDebounce from '@/hooks/useDebounce';
 import { Movie } from '@/interfaces';
 
 function SearchPage() {
-  const basePath = process.env.REACT_APP_BASE_PATH || '/pop-film';
+  const basePath = process.env.REACT_APP_BASE_PATH || '';
 
   const navigate = useNavigate();
   const [searchResults, setSearchResults] = useState<Movie[]>([]);
